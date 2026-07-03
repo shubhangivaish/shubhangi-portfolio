@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shubhangi Vaish — AI Product Manager</title>
+<meta name="description" content="Shubhangi Vaish — Associate Product Manager building AI/computer vision products for global retail intelligence platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080b12;
+    --bg-elevated:#0d1220;
+    --surface:rgba(18,24,38,0.55);
+    --surface-solid:#121826;
+    --border:rgba(61,219,255,0.16);
+    --border-strong:rgba(61,219,255,0.45);
+    --cyan:#3ddbff;
+    --cyan-dim:#1b8fa8;
+    --amber:#ffb43a;
+    --text:#e8edf5;
+    --text-muted:#8b96a8;
+    --text-faint:#4e5a70;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+
+  ::selection{background:var(--cyan); color:#04070c;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--cyan);
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  .container{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+  .section{
+    padding:110px 0;
+    position:relative;
+  }
+  .section--tight{ padding:80px 0; }
+  .section--elevated{ background:var(--bg-elevated); }
+  .section-head{ margin-bottom:56px; max-width:640px; }
+  .section-head h2{
+    font-family:'Sora', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.8rem, 3.2vw, 2.6rem);
+    margin-top:10px;
+    letter-spacing:-0.01em;
+  }
+  .section-head p{ color:var(--text-muted); margin-top:14px; font-size:1rem; max-width:520px; }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+  /* ---------- signature frame component ---------- */
+  .frame{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--border);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  .frame::before, .frame::after{
+    content:'';
+    position:absolute;
+    width:16px; height:16px;
+    border-color:var(--cyan);
+    border-style:solid;
+    transition:width .3s ease, height .3s ease, border-color .3s ease;
+    pointer-events:none;
+  }
+  .frame::before{ top:-1px; left:-1px; border-width:2px 0 0 2px; }
+  .frame::after{ bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
+  .frame:hover::before, .frame:hover::after{ width:24px; height:24px; }
+  .frame:hover{ border-color:var(--border-strong); }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(8,11,18,0.72);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:0.95rem;
+    border:1px solid var(--border-strong); padding:6px 11px; letter-spacing:0.05em;
+    position:relative;
+  }
+  .logo::before, .logo::after{
+    content:''; position:absolute; width:8px; height:8px; border-color:var(--amber); border-style:solid;
+  }
+  .logo::before{ top:-1px; left:-1px; border-width:2px 0 0 2px; }
+  .logo::after{ bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
+
+  .nav-links{ display:flex; gap:34px; align-items:center; }
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--text-muted); position:relative; padding:4px 0;
+    transition:color .2s ease;
+  }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--cyan);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover, .nav-links a.active{ color:var(--text); }
+  .nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.04em;
+    text-transform:uppercase; padding:11px 20px; border:1px solid var(--border-strong);
+    display:inline-flex; align-items:center; gap:8px; transition:all .25s ease; cursor:pointer;
+    background:transparent; color:var(--text);
+  }
+  .btn:hover{ background:rgba(61,219,255,0.08); border-color:var(--cyan); }
+  .btn-primary{ background:var(--cyan); color:#04070c; border-color:var(--cyan); font-weight:600; }
+  .btn-primary:hover{ background:#5fe4ff; }
+  .btn-sm{ padding:9px 16px; font-size:0.72rem; }
+
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .nav-toggle{ display:none; background:none; border:1px solid var(--border-strong); color:var(--text); padding:8px 10px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+    position:relative; padding-top:90px; overflow:hidden;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(61,219,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,219,255,0.05) 1px, transparent 1px);
+    background-size:42px 42px;
+    mask-image:radial-gradient(ellipse at 50% 30%, black 0%, transparent 72%);
+    pointer-events:none;
+  }
+  .scan-bar{
+    position:absolute; left:0; right:0; height:1px;
+    background:linear-gradient(90deg, transparent, var(--cyan), transparent);
+    opacity:0.55; animation:scan 7s linear infinite; pointer-events:none;
+  }
+  @keyframes scan{ 0%{ top:6%; opacity:0;} 8%{opacity:.55;} 50%{ top:78%; } 92%{opacity:.55;} 100%{ top:6%; opacity:0;} }
+
+  .status-line{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem; letter-spacing:0.06em;
+    color:var(--text-muted); text-transform:uppercase; margin-bottom:28px;
+  }
+  .status-dot{
+    width:7px; height:7px; border-radius:50%; background:var(--amber);
+    box-shadow:0 0 0 0 rgba(255,180,58,.6); animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(255,180,58,.55);}
+    70%{ box-shadow:0 0 0 9px rgba(255,180,58,0);}
+    100%{ box-shadow:0 0 0 0 rgba(255,180,58,0);}
+  }
+
+  .hero h1{
+    font-family:'Sora', sans-serif; font-weight:800; letter-spacing:-0.02em;
+    font-size:clamp(2.6rem, 6.4vw, 5.2rem); line-height:1.04; max-width:900px;
+  }
+  .hero h1 .accent{ color:var(--cyan); }
+  .hero p.sub{
+    margin-top:26px; font-size:clamp(1rem, 1.6vw, 1.2rem); color:var(--text-muted);
+    max-width:600px;
+  }
+  .hero .cta-row{ display:flex; gap:16px; margin-top:42px; flex-wrap:wrap; }
+
+  .hero-meta{
+    display:flex; gap:0; margin-top:80px; border-top:1px solid var(--border);
+    max-width:900px;
+  }
+  .hero-meta-item{
+    flex:1; padding:18px 22px 0; border-right:1px solid var(--border);
+  }
+  .hero-meta-item:last-child{ border-right:none; }
+  .hero-meta-item .num{ font-family:'IBM Plex Mono', monospace; font-size:1.5rem; color:var(--cyan); font-weight:600; }
+  .hero-meta-item .lbl{ font-size:0.72rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.05em; margin-top:4px; }
+
+  /* ---------- about ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:70px; align-items:start; }
+  .about-body p{ color:var(--text-muted); margin-bottom:18px; font-size:1.02rem; }
+  .about-body strong{ color:var(--text); font-weight:600; }
+
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .stat-chip{ padding:24px 20px; }
+  .stat-chip .num{
+    font-family:'IBM Plex Mono', monospace; font-size:2.1rem; font-weight:600; color:var(--cyan);
+  }
+  .stat-chip .lbl{ font-size:0.78rem; color:var(--text-muted); margin-top:6px; }
+
+  /* ---------- work / case studies ---------- */
+  .case-study{
+    padding:70px 0; border-top:1px solid var(--border);
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center;
+  }
+  .case-study:last-child{ border-bottom:1px solid var(--border); }
+  .case-study.reverse{ direction:rtl; }
+  .case-study.reverse > *{ direction:ltr; }
+
+  .cs-tag{
+    display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.06em; padding:6px 11px; border:1px solid var(--border-strong);
+    color:var(--amber); text-transform:uppercase; margin-bottom:18px;
+  }
+  .cs-tag .dot{ width:6px; height:6px; border-radius:50%; background:var(--amber); }
+  .case-study h3{
+    font-family:'Sora', sans-serif; font-size:clamp(1.5rem, 2.6vw, 2rem); font-weight:700; margin-bottom:20px;
+  }
+  .cs-block{ margin-bottom:18px; }
+  .cs-block .cs-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:6px;
+  }
+  .cs-block p{ color:var(--text-muted); font-size:0.97rem; }
+  .cs-result{
+    margin-top:24px; padding:16px 18px; border:1px solid var(--border-strong); display:inline-block;
+  }
+  .cs-result .num{ font-family:'IBM Plex Mono', monospace; font-size:1.6rem; color:var(--cyan); font-weight:600; }
+  .cs-result .lbl{ font-size:0.75rem; color:var(--text-muted); margin-top:3px; }
+
+  /* detection visual */
+  .detect-frame{ padding:26px; min-height:280px; display:flex; align-items:center; justify-content:center; }
+  .detect-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; width:100%; }
+  .detect-item{
+    aspect-ratio:1; background:rgba(61,219,255,0.05); border:1px solid rgba(139,150,168,0.18);
+    position:relative;
+  }
+  .detect-item.active{
+    border:1px solid var(--cyan);
+  }
+  .detect-item.active::before, .detect-item.active::after{
+    content:''; position:absolute; width:9px; height:9px; border-color:var(--cyan); border-style:solid;
+  }
+  .detect-item.active::before{ top:-1px; left:-1px; border-width:2px 0 0 2px; }
+  .detect-item.active::after{ bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
+  .detect-item.warn{ border-color:var(--amber); }
+  .detect-item.warn::before, .detect-item.warn::after{ border-color:var(--amber); }
+  .detect-tag{
+    position:absolute; bottom:3px; left:3px; font-family:'IBM Plex Mono', monospace;
+    font-size:0.55rem; color:var(--cyan); background:rgba(8,11,18,0.85); padding:1px 4px;
+  }
+  .detect-item.warn .detect-tag{ color:var(--amber); }
+
+  /* ---------- skills ---------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:22px; }
+  .skill-card{ padding:26px 26px 22px; }
+  .skill-card h4{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--amber); margin-bottom:16px;
+  }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-size:0.82rem; padding:6px 12px; border:1px solid var(--border); color:var(--text-muted);
+    transition:all .2s ease;
+  }
+  .tag:hover{ border-color:var(--cyan); color:var(--text); }
+
+  /* ---------- experience ---------- */
+  .timeline{ position:relative; padding-left:32px; }
+  .timeline::before{
+    content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--border-strong);
+  }
+  .tl-item{ position:relative; padding-bottom:46px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:''; position:absolute; left:-32px; top:5px; width:11px; height:11px;
+    border:2px solid var(--cyan); background:var(--bg); border-radius:50%;
+  }
+  .tl-date{ font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--text-faint); margin-bottom:6px; }
+  .tl-role{ font-family:'Sora', sans-serif; font-size:1.15rem; font-weight:700; }
+  .tl-company{ color:var(--cyan); font-size:0.92rem; margin-bottom:10px; }
+  .tl-item p{ color:var(--text-muted); font-size:0.95rem; max-width:640px; }
+  .edu-note{ margin-top:14px; padding-top:14px; border-top:1px dashed var(--border); font-size:0.85rem; color:var(--text-faint); }
+
+  /* ---------- building ---------- */
+  .building-card{
+    padding:32px; display:grid; grid-template-columns:auto 1fr auto; gap:28px; align-items:center;
+    border-style:dashed !important;
+  }
+  .building-status{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--amber); writing-mode:vertical-rl; text-orientation:mixed; white-space:nowrap;
+  }
+  .building-card h3{ font-family:'Sora', sans-serif; font-size:1.3rem; margin-bottom:8px; }
+  .building-card p{ color:var(--text-muted); font-size:0.94rem; max-width:560px; }
+
+  /* ---------- contact ---------- */
+  .contact-inner{ text-align:center; }
+  .contact-inner .eyebrow{ display:block; margin-bottom:16px; }
+  .contact-inner h2{
+    font-family:'Sora', sans-serif; font-weight:800; font-size:clamp(2rem, 5vw, 3.4rem);
+    letter-spacing:-0.02em; max-width:760px; margin:0 auto;
+  }
+  .contact-inner .accent{ color:var(--cyan); }
+  .contact-cta{ display:flex; gap:16px; justify-content:center; margin-top:40px; flex-wrap:wrap; }
+  .contact-meta{ margin-top:70px; display:flex; justify-content:center; gap:50px; flex-wrap:wrap; }
+  .contact-meta div{ text-align:left; }
+  .contact-meta .lbl{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.06em; }
+  .contact-meta .val{ margin-top:4px; font-size:0.95rem; }
+
+  footer{
+    padding:28px 0; border-top:1px solid var(--border); text-align:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--text-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+
+  @media (max-width:900px){
+    .about-grid{ grid-template-columns:1fr; gap:44px; }
+    .case-study, .case-study.reverse{ grid-template-columns:1fr; direction:ltr; }
+    .case-study .detect-frame{ order:-1; }
+    .skills-grid{ grid-template-columns:1fr; }
+    .hero-meta{ flex-wrap:wrap; }
+    .hero-meta-item{ flex:1 1 45%; margin-bottom:18px; }
+  }
+  @media (max-width:768px){
+    .nav-links{
+      position:fixed; top:64px; left:0; right:0; background:rgba(8,11,18,0.97);
+      flex-direction:column; align-items:flex-start; padding:26px 32px; gap:22px;
+      border-bottom:1px solid var(--border); transform:translateY(-130%); transition:transform .3s ease;
+    }
+    .nav-links.open{ transform:translateY(0); }
+    .nav-toggle{ display:block; }
+    .nav-cta .btn-sm{ display:none; }
+    .section{ padding:70px 0; }
+    .container{ padding:0 20px; }
+    .stat-grid{ grid-template-columns:1fr 1fr; }
+    .building-card{ grid-template-columns:1fr; }
+    .building-status{ writing-mode:horizontal-tb; }
+    .contact-meta{ gap:30px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">SV</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-sm" href="./Shubhangi_Vaish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="scan-bar"></div>
+    <div class="container">
+      <div class="status-line"><span class="status-dot"></span> Available for new opportunities</div>
+      <h1>Shipping AI that <span class="accent">sees retail right.</span></h1>
+      <p class="sub">Associate Product Manager turning computer vision models into decisions enterprise retailers can trust — now running across 20+ international markets at 94%+ accuracy.</p>
+      <div class="cta-row">
+        <a href="#work" class="btn btn-primary">View Case Studies</a>
+        <a href="./Shubhangi_Vaish_Resume.pdf" target="_blank" rel="noopener" class="btn">Download Resume</a>
+        <a href="mailto:shubhangivaish4@gmail.com" class="btn">Get in Touch</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="num">8+</div><div class="lbl">Years Experience</div></div>
+        <div class="hero-meta-item"><div class="num">94%+</div><div class="lbl">Model Accuracy</div></div>
+        <div class="hero-meta-item"><div class="num">340+</div><div class="lbl">Enterprise Customers</div></div>
+        <div class="hero-meta-item"><div class="num">75+</div><div class="lbl">Countries Deployed</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section--elevated" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">01 · About</span>
+        <h2>Product instincts, built on a QA foundation.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-body reveal">
+          <p>I'm an <strong>AI Product Manager</strong> with 8+ years across product and quality engineering, the last 3.6+ as an Associate Product Manager owning AI-powered computer vision capabilities for a global retail intelligence platform.</p>
+          <p>I partner daily with Engineering, Data Science, and Customer Success to turn ambiguous customer problems — a shelf image, a cooler photo, a survey report — into scalable AI product capabilities, balanced against real technical feasibility.</p>
+          <p>Before product, I spent 5 years as a QA Engineer. That background didn't go away — it shows up in how I think about edge cases, validation criteria, and what "production-ready" actually means before a model ships to 75+ countries.</p>
+        </div>
+        <div class="stat-grid reveal">
+          <div class="frame stat-chip"><div class="num" data-count="94">0</div><div class="lbl">Peak model accuracy achieved (%)</div></div>
+          <div class="frame stat-chip"><div class="num" data-count="340">0</div><div class="lbl">Enterprise customers served</div></div>
+          <div class="frame stat-chip"><div class="num" data-count="75">0</div><div class="lbl">Countries in deployment</div></div>
+          <div class="frame stat-chip"><div class="num" data-count="20">0</div><div class="lbl">International markets live</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">02 · Selected Work</span>
+        <h2>Three capabilities I owned end to end.</h2>
+        <p>Each shipped to production across a global retail intelligence platform — from ambiguous problem to a measurable, deployed outcome.</p>
+      </div>
+
+      <article class="case-study reveal">
+        <div>
+          <div class="cs-tag"><span class="dot"></span>Model: Menu-Intel</div>
+          <h3>AI Menu Intelligence</h3>
+          <div class="cs-block">
+            <div class="cs-label">Problem</div>
+            <p>SKU and price recognition accuracy was inconsistent across markets, limiting how reliable the retail execution insights built on top of it could be.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-label">Approach</div>
+            <p>Benchmarked successive model versions against standardized ground truth datasets, partnered with Data Science to refine training data strategy, and established validation criteria the model had to clear before every release.</p>
+          </div>
+          <div class="cs-result">
+            <div class="num">88% → 94%+</div>
+            <div class="lbl">Accuracy, enabling rollout into new European markets</div>
+          </div>
+        </div>
+        <div class="frame detect-frame">
+          <div class="detect-grid">
+            <div class="detect-item active"><span class="detect-tag">94%</span></div>
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">96%</span></div>
+            <div class="detect-item"></div>
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">91%</span></div>
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">95%</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-study reverse reveal">
+        <div>
+          <div class="cs-tag"><span class="dot"></span>Model: Cooler-Vis</div>
+          <h3>Cooler Visibility Detection</h3>
+          <div class="cs-block">
+            <div class="cs-label">Problem</div>
+            <p>Edge cases in detecting brand and product visibility inside cooler images were producing inconsistent model outputs and internal disagreement on what counted as "visible."</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-label">Approach</div>
+            <p>Aligned stakeholders on edge-case definitions, refined annotation guidelines to match, and supported model retraining around the agreed trade-offs and real-world limitations of the AI.</p>
+          </div>
+          <div class="cs-result">
+            <div class="num">+5%</div>
+            <div class="lbl">Accuracy improvement in production</div>
+          </div>
+        </div>
+        <div class="frame detect-frame">
+          <div class="detect-grid">
+            <div class="detect-item warn"><span class="detect-tag">edge</span></div>
+            <div class="detect-item active"><span class="detect-tag">visible</span></div>
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">visible</span></div>
+            <div class="detect-item warn"><span class="detect-tag">edge</span></div>
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">visible</span></div>
+            <div class="detect-item"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-study reveal">
+        <div>
+          <div class="cs-tag"><span class="dot"></span>Workflow: Audit-RT</div>
+          <h3>Audit Review Workflow</h3>
+          <div class="cs-block">
+            <div class="cs-label">Problem</div>
+            <p>Field survey audits took weeks to turn into a report, which meant supervisors were reviewing and approving decisions long after the moment they mattered.</p>
+          </div>
+          <div class="cs-block">
+            <div class="cs-label">Approach</div>
+            <p>Proposed and owned a new review workflow end to end, alongside a dedicated experience to surface brands being consumed indirectly — one supervisors couldn't previously see at all.</p>
+          </div>
+          <div class="cs-result">
+            <div class="num">Weeks → Real-time</div>
+            <div class="lbl">Survey review and approval time</div>
+          </div>
+        </div>
+        <div class="frame detect-frame">
+          <div class="detect-grid">
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">rt</span></div>
+            <div class="detect-item active"><span class="detect-tag">rt</span></div>
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">rt</span></div>
+            <div class="detect-item"></div>
+            <div class="detect-item"></div>
+            <div class="detect-item active"><span class="detect-tag">rt</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section--elevated" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">03 · Skills</span>
+        <h2>What I bring to a product team.</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="frame skill-card reveal">
+          <h4>Product &amp; Delivery</h4>
+          <div class="tag-row">
+            <span class="tag">Requirements Gathering</span><span class="tag">Product Lifecycle</span>
+            <span class="tag">Functional Scoping</span><span class="tag">User Stories</span>
+            <span class="tag">Acceptance Criteria</span><span class="tag">Backlog Refinement</span>
+            <span class="tag">Stakeholder Management</span><span class="tag">Release Planning</span>
+            <span class="tag">Agile Delivery</span>
+          </div>
+        </div>
+        <div class="frame skill-card reveal">
+          <h4>AI / ML Product Management</h4>
+          <div class="tag-row">
+            <span class="tag">Computer Vision Products</span><span class="tag">Model Validation</span>
+            <span class="tag">Model Governance</span><span class="tag">Training Data Strategy</span>
+            <span class="tag">AI Performance Analysis</span><span class="tag">Deployment Readiness</span>
+            <span class="tag">AI Product Scaling</span><span class="tag">Production Monitoring</span>
+          </div>
+        </div>
+        <div class="frame skill-card reveal">
+          <h4>Delivery &amp; Operations</h4>
+          <div class="tag-row">
+            <span class="tag">Workflow Design</span><span class="tag">Process Optimization</span>
+            <span class="tag">KPI Tracking</span><span class="tag">Risk Identification</span>
+            <span class="tag">Root Cause Analysis</span><span class="tag">International Deployments</span>
+          </div>
+        </div>
+        <div class="frame skill-card reveal">
+          <h4>Tools &amp; Methodologies</h4>
+          <div class="tag-row">
+            <span class="tag">JIRA</span><span class="tag">Azure DevOps</span><span class="tag">SQL</span>
+            <span class="tag">Postman</span><span class="tag">Agile</span><span class="tag">Scrum</span><span class="tag">Excel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">04 · Experience</span>
+        <h2>Path here.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-date">Jan 2023 — Present</div>
+          <div class="tl-role">Associate Product Manager</div>
+          <div class="tl-company">Vision Group</div>
+          <p>Own product requirements and release readiness for AI-powered computer vision solutions across a global retail intelligence platform serving 340+ enterprise customers in 75+ countries.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-date">Feb 2020 — Jan 2023</div>
+          <div class="tl-role">Senior QA Engineer</div>
+          <div class="tl-company">Ness Technologies</div>
+          <p>Led requirement validation, test strategy, and defect triage across multiple product releases, working closely with PMs and Engineering on feature quality and release readiness.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-date">Mar 2018 — Dec 2019</div>
+          <div class="tl-role">QA Engineer</div>
+          <div class="tl-company">Copper Mobile Pvt. Ltd.</div>
+          <p>Developed test strategies for enterprise mobile applications and supported delivery of business-critical solutions across multiple domains.</p>
+          <div class="edu-note">M.Tech, Wireless Communication (2016) · B.Tech, Electronics &amp; Communication Engineering (2014)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENTLY BUILDING -->
+  <section class="section section--tight section--elevated">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">05 · Currently Building</span>
+        <h2>Outside the day job.</h2>
+      </div>
+      <div class="frame building-card reveal">
+        <div class="building-status">Status · Active</div>
+        <div>
+          <h3>YouTube Command Center</h3>
+          <p>A distraction-free dashboard that pulls videos straight from chosen channels, skipping the algorithmic feed entirely — built so watching a business case study doesn't turn into an hour of recommended shorts.</p>
+        </div>
+        <a href="https://github.com/shubhangivaish/codespaces-youtube-filtering" target="_blank" rel="noopener" class="btn btn-sm">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container contact-inner">
+      <span class="eyebrow reveal">06 · Contact</span>
+      <h2 class="reveal">Let's talk about your <span class="accent">next AI product hire.</span></h2>
+      <div class="contact-cta reveal">
+        <a href="mailto:shubhangivaish4@gmail.com" class="btn btn-primary">shubhangivaish4@gmail.com</a>
+        <a href="https://www.linkedin.com/in/shubhangivaish/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+        <a href="./Shubhangi_Vaish_Resume.pdf" target="_blank" rel="noopener" class="btn">Download Resume</a>
+      </div>
+      <div class="contact-meta reveal">
+        <div><div class="lbl">Location</div><div class="val">Pune, India</div></div>
+        <div><div class="lbl">Status</div><div class="val">Available for new opportunities</div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Shubhangi Vaish — Built for the next role.
+</footer>
+
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // scroll spy
+  const sections = ['about','work','skills','experience','contact'].map(id => document.getElementById(id));
+  const navA = navLinks.querySelectorAll('a');
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  sections.forEach(s => s && spyObserver.observe(s));
+
+  // reveal on scroll
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // count-up stats
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now){
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = Math.floor(progress * target) + (progress === 1 ? (target >= 90 ? '%' : '+') : '');
+          if(progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        countObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+</script>
+
+</body>
+</html>
